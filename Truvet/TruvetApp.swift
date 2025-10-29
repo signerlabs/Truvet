@@ -11,7 +11,7 @@ import SwiftUI
 struct TruvetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootTabView()
         }
     }
 }
