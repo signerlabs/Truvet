@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebFetch(domain:www.kodeco.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:www.appcoda.com)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

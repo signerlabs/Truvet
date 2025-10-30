@@ -12,15 +12,15 @@ struct RootTabView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            Tab("", systemImage: "map", value: "map") {
+            Tab("", systemImage: "pawprint", value: "map") {
                 MapView()
             }
             
-            Tab("", systemImage: "bubble", value: "community") {
+            Tab("", systemImage: "camera.metering.center.weighted.average", value: "community") {
                 CommunityView()
             }
             
-            Tab("", systemImage: "bag", value: "shop") {
+            Tab("", systemImage: "cart", value: "shop") {
                 ShopView()
             }
             

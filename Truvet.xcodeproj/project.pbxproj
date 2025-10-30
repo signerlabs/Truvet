@@ -16,6 +16,11 @@
 			path = Truvet;
 			sourceTree = "<group>";
 		};
+		B6E18B432EB2FD980022DD72 /* Data */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			children = (
 				B6B0FE642EB22503000AEA54 /* Truvet */,
 				B6B0FE632EB22503000AEA54 /* Products */,
+				B6E18B432EB2FD980022DD72 /* Data */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +68,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				B6B0FE642EB22503000AEA54 /* Truvet */,
+				B6E18B432EB2FD980022DD72 /* Data */,
 			);
 			name = Truvet;
 			packageProductDependencies = (
