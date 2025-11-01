@@ -9,7 +9,11 @@ import SwiftUI
 
 struct CommunityView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            AppleLoginAnimation(logo: "TabIcon",
+                                images: ["豆豆", "泡芙", "小白", "可乐", "bella", "lucky"])
+        }
+        .background(Color.background)
     }
 }
 

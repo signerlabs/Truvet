@@ -18,8 +18,7 @@ struct AnimatedLogoOrbit: View {
             if let scene {
                 SpriteView(
                     scene: scene,
-                    options: [.allowsTransparency],
-                    debugOptions: [.showsFPS, .showsDrawCount, .showsNodeCount]
+                    options: [.allowsTransparency]
                 )
             }
         }
@@ -49,11 +48,11 @@ class AnimatedLogoOrbitScene: SKScene {
     let container = SKNode()
 
     private let gradient: [(angle: CGFloat, color: SKColor)] = [
-        (0, SKColor(red: 185/255, green: 88/255, blue: 217/255, alpha: 1)), // right = purple
-        (.pi / 2, SKColor(red: 236/255, green: 103/255, blue: 124/255, alpha: 1)), // top = pink
-        (.pi, SKColor(red: 233/255, green: 188/255, blue: 158/255, alpha: 1)), // left = orange
-        (3 * .pi / 2, SKColor(red: 116/255, green: 190/255, blue: 246/255, alpha: 1)), // bottom = blue
-        (2 * .pi, SKColor(red: 185/255, green: 88/255, blue: 217/255, alpha: 1))  // right = purple
+        (0, SKColor(red: 26/255, green: 127/255, blue: 93/255, alpha: 1)), // right = AccentColor (深绿)
+        (.pi / 2, SKColor(red: 52/255, green: 180/255, blue: 140/255, alpha: 1)), // top = 亮绿色
+        (.pi, SKColor(red: 80/255, green: 200/255, blue: 160/255, alpha: 1)), // left = 浅绿色
+        (3 * .pi / 2, SKColor(red: 40/255, green: 150/255, blue: 115/255, alpha: 1)), // bottom = 中绿色
+        (2 * .pi, SKColor(red: 26/255, green: 127/255, blue: 93/255, alpha: 1))  // right = AccentColor (深绿)
     ]
 
     override func didMove(to view: SKView) {
