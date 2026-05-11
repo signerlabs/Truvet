@@ -66,3 +66,10 @@ extension User {
         )
     ]
 }
+
+// MARK: - 当前登录用户（纯 Mock）
+extension User {
+    /// Demo 中的"我"，默认是铲屎官小王
+    static var currentUser: User { sampleUsers[0] }
+}
+

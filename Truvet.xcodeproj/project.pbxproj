@@ -7,18 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		B6B0FE622EB22503000AEA54 /* Truvet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truvet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B8E5D0A2FB161AC00B330CE /* Truvet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truvet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B6B0FE642EB22503000AEA54 /* Truvet */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Truvet;
-			sourceTree = "<group>";
-		};
-		B6E18B432EB2FD980022DD72 /* Data */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -38,17 +33,8 @@
 			isa = PBXGroup;
 			children = (
 				B6B0FE642EB22503000AEA54 /* Truvet */,
-				B6B0FE632EB22503000AEA54 /* Products */,
-				B6E18B432EB2FD980022DD72 /* Data */,
+				9B8E5D0A2FB161AC00B330CE /* Truvet.app */,
 			);
-			sourceTree = "<group>";
-		};
-		B6B0FE632EB22503000AEA54 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B6B0FE622EB22503000AEA54 /* Truvet.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -68,13 +54,12 @@
 			);
 			fileSystemSynchronizedGroups = (
 				B6B0FE642EB22503000AEA54 /* Truvet */,
-				B6E18B432EB2FD980022DD72 /* Data */,
 			);
 			name = Truvet;
 			packageProductDependencies = (
 			);
 			productName = Truvet;
-			productReference = B6B0FE622EB22503000AEA54 /* Truvet.app */;
+			productReference = 9B8E5D0A2FB161AC00B330CE /* Truvet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +70,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2640;
 				TargetAttributes = {
 					B6B0FE612EB22503000AEA54 = {
 						CreatedOnToolsVersion = 26.0;
@@ -102,7 +87,7 @@
 			mainGroup = B6B0FE592EB22503000AEA54;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = B6B0FE632EB22503000AEA54 /* Products */;
+			productRefGroup = B6B0FE592EB22503000AEA54;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -191,6 +176,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -248,6 +234,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

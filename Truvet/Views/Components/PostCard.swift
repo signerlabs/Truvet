@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct PostCard: View {
     let post: Post
+
+    /// Asset 不存在时回退到 bella，避免出现空白图
+    private func safeImageName(_ name: String) -> String {
+        UIImage(named: name) != nil ? name : "bella"
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             // 图片区域
             GeometryReader { geometry in
                 ZStack(alignment: .topTrailing) {
-                    Image(post.images.first ?? "bella")
+                    Image(safeImageName(post.images.first ?? "bella"))
                         .resizable()
                         .scaledToFill()
                         .frame(width: geometry.size.width, height: geometry.size.width * 4/3)

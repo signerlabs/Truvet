@@ -3,14 +3,83 @@
 //  Truvet
 //
 //  Created by 仲炜 on 2025/10/29.
+//  Rewritten by 霍去病 on 2026/05/11.
 //
 
 import SwiftUI
 
+/// 消息 Tab：顶部两段（消息 / 通知）
 struct MessageView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    enum Segment: String, CaseIterable, Hashable {
+        case chats = "消息"
+        case notifications = "通知"
     }
+
+    @State private var segment: Segment = .chats
+
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 0) {
+                SegmentedHeader(
+                    items: Segment.allCases,
+                    title: { $0.rawValue },
+                    selection: $segment
+                )
+                .background(Color(.systemBackground))
+
+                Divider()
+                    .opacity(0.4)
+
+                switch segment {
+                case .chats:
+                    chatList
+                case .notifications:
+                    notificationList
+                }
+            }
+            .navigationTitle("消息")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: ChatConversation.self) { conv in
+                ChatView(conversation: conv)
+            }
+        }
+    }
+
+    // MARK: - 会话列表
+    private var chatList: some View {
+        List(ChatConversation.sampleConversations) { conv in
+            ZStack {
+                // NavigationLink 包裹整行，去掉默认箭头
+                NavigationLink(value: conv) {
+                    EmptyView()
+                }
+                .opacity(0)
+
+                ConversationRow(conversation: conv)
+            }
+            .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
+            .listRowSeparator(.hidden)
+        }
+        .listStyle(.plain)
+        .background(Color.background)
+    }
+
+    // MARK: - 通知列表
+    private var notificationList: some View {
+        List(AppNotification.sampleNotifications) { notification in
+            NotificationRow(notification: notification)
+                .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
+                .listRowSeparator(.hidden)
+        }
+        .listStyle(.plain)
+        .background(Color.background)
+    }
+}
+
+// MARK: - ChatConversation Hashable
+extension ChatConversation: Hashable {
+    static func == (lhs: ChatConversation, rhs: ChatConversation) -> Bool { lhs.id == rhs.id }
+    func hash(into hasher: inout Hasher) { hasher.combine(id) }
 }
 
 #Preview {

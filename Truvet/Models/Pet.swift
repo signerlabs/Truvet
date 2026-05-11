@@ -48,6 +48,8 @@ struct Pet: Identifiable, Codable {
 
 // MARK: - 预览数据
 extension Pet {
+    // 上海 6 个标志性坐标，与 6 只宠物一一对应
+    // 小白 → 陆家嘴 / 泡芙 → 外滩 / 豆豆 → 静安寺 / Bella → 徐家汇 / Lucky → 世纪公园 / 可乐 → 虹桥
     static let samplePets = [
         Pet(
             ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // 铲屎官小王
@@ -57,8 +59,8 @@ extension Pet {
             age: 2,
             tags: [.friendly, .energetic, .lovesKids],
             activeTime: "上午8-10点",
-            latitude: 39.9,
-            longitude: 116.5
+            latitude: 31.2397,
+            longitude: 121.4998 // 陆家嘴
         ),
         Pet(
             ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // 铲屎官小王
@@ -68,8 +70,8 @@ extension Pet {
             age: 3,
             tags: [.gentle, .quiet, .smart],
             activeTime: "下午4-6点",
-            latitude: 39.92,
-            longitude: 116.51
+            latitude: 31.2397,
+            longitude: 121.4906 // 外滩
         ),
         Pet(
             ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000002")!, // Cooper的麻麻
@@ -79,8 +81,8 @@ extension Pet {
             age: 1,
             tags: [.playful, .curious, .foodie],
             activeTime: "上午9-11点，下午5-7点",
-            latitude: 39.93,
-            longitude: 116.53
+            latitude: 31.2236,
+            longitude: 121.4458 // 静安寺
         ),
         Pet(
             ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000003")!, // 宠物医生小李
@@ -90,8 +92,8 @@ extension Pet {
             age: 4,
             tags: [.friendly, .loyal, .lovesFetch],
             activeTime: "上午7-9点，下午6-8点",
-            latitude: 39.91,
-            longitude: 116.49
+            latitude: 31.1948,
+            longitude: 121.4365 // 徐家汇
         ),
         Pet(
             ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000004")!, // 上海宠物圈
@@ -101,8 +103,8 @@ extension Pet {
             age: 2,
             tags: [.energetic, .goodWithDogs, .lovesWater],
             activeTime: "全天",
-            latitude: 39.89,
-            longitude: 116.5
+            latitude: 31.2155,
+            longitude: 121.5471 // 世纪公园
         ),
         Pet(
             ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000005")!, // 宠物用品测评
@@ -112,8 +114,8 @@ extension Pet {
             age: 3,
             tags: [.smart, .curious, .trained],
             activeTime: "上午10-12点，下午3-5点",
-            latitude: 39.88,
-            longitude: 116.495
+            latitude: 31.1972,
+            longitude: 121.4007 // 虹桥
         )
     ]
 }

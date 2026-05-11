@@ -7,31 +7,30 @@
 
 import SwiftUI
 
+/// 一级 Tab 路由：地图 / 社区 / 消息 / 我
+/// 默认进入社区，瀑布流第一眼最直观
 struct RootTabView: View {
-    @State private var selectedTab = "map"
+    @State private var selectedTab: String = "community"
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            Tab("", systemImage: "pawprint", value: "map") {
+            Tab("地图", systemImage: "pawprint.fill", value: "map") {
                 MapView()
             }
-            
-            Tab("", systemImage: "camera.metering.center.weighted.average", value: "community") {
+
+            Tab("社区", systemImage: "square.grid.2x2.fill", value: "community") {
                 CommunityView()
             }
-            
-            Tab("", systemImage: "cart", value: "shop") {
-                ShopView()
-            }
-            
-            Tab("", systemImage: "bell", value: "message") {
+
+            Tab("消息", systemImage: "bubble.left.and.bubble.right.fill", value: "message") {
                 MessageView()
             }
-            
-            Tab("", systemImage: "person", value: "profile") {
+
+            Tab("我", systemImage: "person.crop.circle.fill", value: "profile") {
                 ProfileView()
             }
         }
+        .tint(.accent)
         .sensoryFeedback(.increase, trigger: selectedTab)
     }
 }
