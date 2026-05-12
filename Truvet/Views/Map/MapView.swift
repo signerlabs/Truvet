@@ -2,7 +2,7 @@
 //  MapView.swift
 //  Truvet
 //
-//  Created by 仲炜 on 2025/10/29.
+//  Created by signerlabs.
 //
 
 import SwiftUI

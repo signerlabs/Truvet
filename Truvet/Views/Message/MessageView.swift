@@ -2,8 +2,7 @@
 //  MessageView.swift
 //  Truvet
 //
-//  Created by 仲炜 on 2025/10/29.
-//  Rewritten by 霍去病 on 2026/05/11.
+//  Created by signerlabs.
 //
 
 import SwiftUI

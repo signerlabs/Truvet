@@ -2,7 +2,7 @@
 //  Date+RelativeTime.swift
 //  Truvet
 //
-//  Created by 霍去病 on 2026/05/11.
+//  Created by signerlabs.
 //
 
 import Foundation
