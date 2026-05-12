@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// 一级 Tab 路由：地图 / 社区 / 消息 / 我
-/// 默认进入社区，瀑布流第一眼最直观
+/// Top-level Tab router: Map / Community / Messages / Profile
+/// Defaults to Community since the waterfall feed is the most intuitive first view
 struct RootTabView: View {
     @State private var selectedTab: String = "community"
 

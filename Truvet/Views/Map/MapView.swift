@@ -8,8 +8,8 @@
 import SwiftUI
 import MapKit
 
-struct MapView: View {    
-    // 初始位置：上海市中心，跨度覆盖 6 只宠物所在的市中心区域
+struct MapView: View {
+    // Initial position: downtown Shanghai, span covers the area where all 6 pets are located
     @State private var position = MapCameraPosition.region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 31.2304, longitude: 121.4737),

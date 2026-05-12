@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - 评论模型
+// MARK: - Comment Model
 struct Comment: Identifiable, Codable {
     let id: UUID
     let postId: UUID
@@ -17,9 +17,9 @@ struct Comment: Identifiable, Codable {
     let likeCount: Int
 }
 
-// MARK: - Mock 评论生成器
+// MARK: - Mock Comment Generator
 extension Comment {
-    /// 用预定义的中文评论池，按 postId 做稳定打散，保证同一帖子每次进入看到同样的评论
+    /// Use a predefined Chinese comment pool, scrambled deterministically by postId so the same post always shows the same comments
     private static let commentPool: [(String, Int)] = [
         ("好可爱！能蹭一下吗😍", 23),
         ("求同款狗粮链接！", 17),
@@ -38,10 +38,10 @@ extension Comment {
         ("第一次看到这种品种，好特别", 2)
     ]
 
-    /// 为指定 Post 返回 3-5 条 mock 评论。
-    /// 关键：内容/用户/likeCount 都靠 postId 哈希稳定派生，避免每次刷新都换。
+    /// Return 3-5 mock comments for a given Post.
+    /// Key idea: content / user / likeCount are all derived deterministically from postId hash, so they don't change on refresh.
     static func samples(for postId: UUID) -> [Comment] {
-        // 用 UUID 字节首位做随机种子，保证稳定
+        // Use the first byte of the UUID as a stable random seed
         let seedByte = Int(postId.uuid.0)
         let count = 3 + (seedByte % 3) // 3...5
         let users = User.sampleUsers
@@ -57,7 +57,7 @@ extension Comment {
                 postId: postId,
                 user: user,
                 content: text,
-                // 每条评论时间向前递推 30 分钟～几小时
+                // Each comment is 30 minutes to a few hours older than the previous one
                 createdAt: Date().addingTimeInterval(-Double((i + 1) * 1800 + seedByte * 60)),
                 likeCount: baseLike + (i * 2)
             )

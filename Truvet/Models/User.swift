@@ -11,15 +11,15 @@ struct User: Identifiable, Codable {
     let id: UUID
     let username: String
     let avatar: String
-    let isVerified: Bool // 是否认证用户
-    let bio: String? // 个人简介
+    let isVerified: Bool // Whether the user is verified
+    let bio: String? // User bio
 
-    // 关联关系：一个User可以有多个Post和Pet
-    // 通过查询 Post.user.id == User.id 获取用户的所有帖子
-    // 通过查询 Pet.ownerId == User.id 获取用户的所有宠物
+    // Relationships: a User can have multiple Posts and Pets
+    // Query Post.user.id == User.id to get all posts of a user
+    // Query Pet.ownerId == User.id to get all pets of a user
 }
 
-// MARK: - 预览数据
+// MARK: - Preview Data
 extension User {
     static let sampleUsers = [
         User(
@@ -67,9 +67,9 @@ extension User {
     ]
 }
 
-// MARK: - 当前登录用户（纯 Mock）
+// MARK: - Current Logged-in User (pure mock)
 extension User {
-    /// Demo 中的"我"，默认是铲屎官小王
+    /// "Me" in the demo, defaults to the first sample user
     static var currentUser: User { sampleUsers[0] }
 }
 

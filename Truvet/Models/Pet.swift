@@ -11,13 +11,13 @@ import CoreLocation
 // MARK: - Pet Model
 struct Pet: Identifiable, Codable {
     var id = UUID()
-    var ownerId: UUID // 关联的用户ID - 一个Pet只能属于一个User
+    var ownerId: UUID // Associated user ID - a Pet belongs to exactly one User
     var name: String = ""
-    var avatar: String = "" // Asset名称，如"bella"、"lucky"等
+    var avatar: String = "" // Asset name, e.g. "bella", "lucky"
     var breed: PetBreed = .other
-    var age: Int = 0 // 年龄（岁）
-    var tags: [PetTag] = [] // 自我标签
-    var activeTime: String = "" // 活跃时间，如"上午8-10点，下午4-6点"
+    var age: Int = 0 // Age in years
+    var tags: [PetTag] = [] // Self-described tags
+    var activeTime: String = "" // Active time, e.g. "8-10 AM, 4-6 PM"
     var latitude: Double = 0.0
     var longitude: Double  = 0.0
 
@@ -29,7 +29,7 @@ struct Pet: Identifiable, Codable {
         CLLocation(latitude: latitude, longitude: longitude)
     }
 
-    // 格式化年龄显示
+    // Formatted age display
     var ageDescription: String {
         if age == 0 {
             return "未知"
@@ -40,19 +40,19 @@ struct Pet: Identifiable, Codable {
         }
     }
 
-    // 标签显示文本
+    // Tag display text
     var tagsText: String {
         tags.map { $0.displayName }.joined(separator: " · ")
     }
 }
 
-// MARK: - 预览数据
+// MARK: - Preview Data
 extension Pet {
-    // 上海 6 个标志性坐标，与 6 只宠物一一对应
-    // 小白 → 陆家嘴 / 泡芙 → 外滩 / 豆豆 → 静安寺 / Bella → 徐家汇 / Lucky → 世纪公园 / 可乐 → 虹桥
+    // 6 iconic Shanghai coordinates, one-to-one with the 6 pets
+    // Xiaobai → Lujiazui / Puff → The Bund / Doudou → Jing'an Temple / Bella → Xujiahui / Lucky → Century Park / Cola → Hongqiao
     static let samplePets = [
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // 铲屎官小王
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // Pet Owner Wang
             name: "小白",
             avatar: "小白",
             breed: .samoyed,
@@ -60,10 +60,10 @@ extension Pet {
             tags: [.friendly, .energetic, .lovesKids],
             activeTime: "上午8-10点",
             latitude: 31.2397,
-            longitude: 121.4998 // 陆家嘴
+            longitude: 121.4998 // Lujiazui
         ),
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // 铲屎官小王
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // Pet Owner Wang
             name: "泡芙",
             avatar: "泡芙",
             breed: .poodle,
@@ -71,10 +71,10 @@ extension Pet {
             tags: [.gentle, .quiet, .smart],
             activeTime: "下午4-6点",
             latitude: 31.2397,
-            longitude: 121.4906 // 外滩
+            longitude: 121.4906 // The Bund
         ),
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000002")!, // Cooper的麻麻
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000002")!, // Cooper's Mom
             name: "豆豆",
             avatar: "豆豆",
             breed: .corgi,
@@ -82,10 +82,10 @@ extension Pet {
             tags: [.playful, .curious, .foodie],
             activeTime: "上午9-11点，下午5-7点",
             latitude: 31.2236,
-            longitude: 121.4458 // 静安寺
+            longitude: 121.4458 // Jing'an Temple
         ),
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000003")!, // 宠物医生小李
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000003")!, // Pet doctor Li
             name: "Bella",
             avatar: "bella",
             breed: .goldenRetriever,
@@ -93,10 +93,10 @@ extension Pet {
             tags: [.friendly, .loyal, .lovesFetch],
             activeTime: "上午7-9点，下午6-8点",
             latitude: 31.1948,
-            longitude: 121.4365 // 徐家汇
+            longitude: 121.4365 // Xujiahui
         ),
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000004")!, // 上海宠物圈
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000004")!, // Shanghai Pet Circle
             name: "Lucky",
             avatar: "lucky",
             breed: .labrador,
@@ -104,10 +104,10 @@ extension Pet {
             tags: [.energetic, .goodWithDogs, .lovesWater],
             activeTime: "全天",
             latitude: 31.2155,
-            longitude: 121.5471 // 世纪公园
+            longitude: 121.5471 // Century Park
         ),
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000005")!, // 宠物用品测评
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000005")!, // Pet Supplies Reviews
             name: "可乐",
             avatar: "可乐",
             breed: .shibaInu,
@@ -115,12 +115,12 @@ extension Pet {
             tags: [.smart, .curious, .trained],
             activeTime: "上午10-12点，下午3-5点",
             latitude: 31.1972,
-            longitude: 121.4007 // 虹桥
+            longitude: 121.4007 // Hongqiao
         )
     ]
 }
 
-// MARK: - 品种枚举
+// MARK: - Breed Enum
 enum PetBreed: String, Codable, CaseIterable, Identifiable {
     case goldenRetriever = "golden_retriever"
     case corgi = "corgi"
@@ -161,7 +161,7 @@ enum PetBreed: String, Codable, CaseIterable, Identifiable {
     }
 }
 
-// MARK: - 宠物标签枚举
+// MARK: - Pet Tag Enum
 enum PetTag: String, Codable, CaseIterable, Identifiable {
     case energetic = "energetic"
     case friendly = "friendly"

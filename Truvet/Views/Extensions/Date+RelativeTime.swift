@@ -8,13 +8,13 @@
 import Foundation
 
 extension Date {
-    /// 中文相对时间描述
-    /// - 60 秒内 → "刚刚"
-    /// - 1 小时内 → "X 分钟前"
-    /// - 24 小时内 → "X 小时前"
-    /// - 昨天 → "昨天"
-    /// - 7 天内 → "X 天前"
-    /// - 超过 → "M月D日"
+    /// Chinese relative time description
+    /// - Within 60s → "刚刚" (just now)
+    /// - Within 1h → "X 分钟前" (X minutes ago)
+    /// - Within 24h → "X 小时前" (X hours ago)
+    /// - Yesterday → "昨天"
+    /// - Within 7 days → "X 天前" (X days ago)
+    /// - Beyond → "M月D日" (M/D)
     var relativeDescription: String {
         let interval = Date().timeIntervalSince(self)
 
@@ -36,11 +36,11 @@ extension Date {
         }
     }
 
-    /// 聊天界面用的"时间分割"，更精细
-    /// - 1 分钟内 → "刚刚"
-    /// - 当天 → "HH:mm"
-    /// - 昨天 → "昨天 HH:mm"
-    /// - 否则 → "M月D日 HH:mm"
+    /// More granular "time divider" used in chat
+    /// - Within 1 min → "刚刚" (just now)
+    /// - Same day → "HH:mm"
+    /// - Yesterday → "昨天 HH:mm"
+    /// - Otherwise → "M月D日 HH:mm"
     var chatTimestamp: String {
         let interval = Date().timeIntervalSince(self)
         let formatter = DateFormatter()

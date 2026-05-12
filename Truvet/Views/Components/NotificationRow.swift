@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-/// 通知列表单 cell：图标 + 来源用户 + 文案 + 相对时间 +（未读时）左侧蓝点
+/// Notification list cell: icon + source user + body + relative time + (left-side blue dot when unread)
 struct NotificationRow: View {
     let notification: AppNotification
 
-    /// 类型对应的图标背景色
+    /// Icon background color per notification type
     private var iconBackground: Color {
         switch notification.type {
         case .like:    return .pink
@@ -23,13 +23,13 @@ struct NotificationRow: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            // 未读蓝点（占位用，保持对齐）
+            // Unread blue dot (also a placeholder to keep alignment)
             Circle()
                 .fill(notification.isRead ? Color.clear : Color.blue)
                 .frame(width: 8, height: 8)
                 .padding(.top, 18)
 
-            // 用户头像或纯图标
+            // User avatar or plain icon
             ZStack(alignment: .bottomTrailing) {
                 if let fromUser = notification.fromUser {
                     Image(fromUser.avatar)
@@ -48,7 +48,7 @@ struct NotificationRow: View {
                         )
                 }
 
-                // 类型角标（头像右下角，系统通知不显示）
+                // Type badge (bottom-right of avatar, not shown for system notifications)
                 if notification.fromUser != nil {
                     Circle()
                         .fill(iconBackground)
@@ -78,7 +78,7 @@ struct NotificationRow: View {
 
             Spacer(minLength: 0)
 
-            // 帖子缩略图（若有）
+            // Post thumbnail (if any)
             if let post = notification.relatedPost, let firstImage = post.images.first {
                 Image(firstImage)
                     .resizable()

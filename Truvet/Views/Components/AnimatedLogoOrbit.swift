@@ -48,11 +48,11 @@ class AnimatedLogoOrbitScene: SKScene {
     let container = SKNode()
 
     private let gradient: [(angle: CGFloat, color: SKColor)] = [
-        (0, SKColor(red: 26/255, green: 127/255, blue: 93/255, alpha: 1)), // right = AccentColor (深绿)
-        (.pi / 2, SKColor(red: 52/255, green: 180/255, blue: 140/255, alpha: 1)), // top = 亮绿色
-        (.pi, SKColor(red: 80/255, green: 200/255, blue: 160/255, alpha: 1)), // left = 浅绿色
-        (3 * .pi / 2, SKColor(red: 40/255, green: 150/255, blue: 115/255, alpha: 1)), // bottom = 中绿色
-        (2 * .pi, SKColor(red: 26/255, green: 127/255, blue: 93/255, alpha: 1))  // right = AccentColor (深绿)
+        (0, SKColor(red: 26/255, green: 127/255, blue: 93/255, alpha: 1)), // right = AccentColor (dark green)
+        (.pi / 2, SKColor(red: 52/255, green: 180/255, blue: 140/255, alpha: 1)), // top = bright green
+        (.pi, SKColor(red: 80/255, green: 200/255, blue: 160/255, alpha: 1)), // left = light green
+        (3 * .pi / 2, SKColor(red: 40/255, green: 150/255, blue: 115/255, alpha: 1)), // bottom = mid green
+        (2 * .pi, SKColor(red: 26/255, green: 127/255, blue: 93/255, alpha: 1))  // right = AccentColor (dark green)
     ]
 
     override func didMove(to view: SKView) {
@@ -107,26 +107,26 @@ class AnimatedLogoOrbitScene: SKScene {
     }
 
     private func placeIconOnOuterCircle(for dot: SKShapeNode) {
-        // 创建圆形遮罩 - 使用更大的尺寸以适应放大动画
-        let maskRadius: CGFloat = 40  // 增大到40，放大4倍后是160
+        // Create a circular mask - larger size to accommodate the scale-up animation
+        let maskRadius: CGFloat = 40  // 40 → 160 after the 4x scale-up
         let mask = SKShapeNode(circleOfRadius: maskRadius)
         mask.fillColor = .white
         mask.strokeColor = .clear
 
-        // 创建裁剪节点
+        // Create crop node
         let cropNode = SKCropNode()
         cropNode.maskNode = mask
         cropNode.alpha = 0
         cropNode.name = "sprite"
-        cropNode.setScale(0.25)  // 初始缩小到1/4，保持视觉大小为10
+        cropNode.setScale(0.25)  // Start at 1/4 so visual size stays at 10
 
-        // 创建图片sprite
+        // Create image sprite
         let sprite = SKSpriteNode(imageNamed: images[outerCircleDots.count])
 
-        // 设置texture过滤模式，避免模糊
+        // Set texture filtering mode to avoid blurriness
         sprite.texture?.filteringMode = .linear
 
-        // 计算图片尺寸，使用aspectFill效果
+        // Compute image size with an aspectFill effect
         let imageSize = sprite.size
         let scale = max((maskRadius * 2) / imageSize.width, (maskRadius * 2) / imageSize.height)
         sprite.size = CGSize(width: imageSize.width * scale, height: imageSize.height * scale)

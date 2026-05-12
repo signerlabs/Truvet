@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-/// 聊天气泡：我方右对齐（accent 色）/ 对方左对齐（材质背景）
+/// Chat bubble: my messages right-aligned (accent color) / their messages left-aligned (material background)
 struct ChatBubble: View {
     let message: ChatMessage
-    /// 对方头像（仅在对方消息时左侧显示）
+    /// Other side's avatar (shown on the left for incoming messages)
     let otherAvatar: String
 
     var body: some View {
@@ -51,7 +51,7 @@ struct ChatBubble: View {
     }
 }
 
-/// 时间分隔条（5 分钟以上的间隔显示）
+/// Time divider (shown when the gap is 5+ minutes)
 struct ChatTimeDivider: View {
     let date: Date
 

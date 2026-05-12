@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// 宠物标签 chip：带选中态，PetEdit / Composer / Detail 复用
+/// Pet tag chip with selected state, reused by PetEdit / Composer / Detail
 struct PetTagChip: View {
     let tag: PetTag
     let isSelected: Bool
@@ -38,7 +38,7 @@ struct PetTagChip: View {
     }
 }
 
-/// 普通文字 chip（话题、位置等）
+/// Plain text chip (topics, locations, etc.)
 struct TopicChip: View {
     let text: String
     let isSelected: Bool

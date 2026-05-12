@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// 宠物编辑：纯 mock，"保存"按钮只 dismiss
+/// Pet edit view: pure mock, the Save button only dismisses
 struct PetEditView: View {
     @Environment(\.dismiss) private var dismiss
 
@@ -27,7 +27,7 @@ struct PetEditView: View {
         self.avatar = pet.avatar
     }
 
-    /// 标签 chip 双列网格
+    /// Two-column grid for tag chips
     private let tagColumns = [
         GridItem(.adaptive(minimum: 90), spacing: 8)
     ]
@@ -57,7 +57,7 @@ struct PetEditView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    // MARK: - 头像区
+    // MARK: - Avatar Header
     private var avatarHeader: some View {
         VStack(spacing: 8) {
             Image(avatar)

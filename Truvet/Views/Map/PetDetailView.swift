@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-// MARK: - 宠物详情弹窗
+// MARK: - Pet Detail Sheet
 struct PetDetailView: View {
     let pet: Pet
-    
-    // 双列布局配置
+
+    // Two-column layout configuration
     private let columns = [
         GridItem(.flexible(), spacing: 12),
         GridItem(.flexible(), spacing: 12)
@@ -21,7 +21,7 @@ struct PetDetailView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 18) {
-                    //MARK: 基本信息
+                    // MARK: Basic Info
                     VStack(spacing: 12) {
                         Image(pet.avatar)
                             .resizable()
@@ -49,7 +49,7 @@ struct PetDetailView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         
-                        //MARK: 性格标签
+                        // MARK: Personality Tags
                         if !pet.tags.isEmpty {
                             VStack(alignment: .leading, spacing: 12) {
                                 ScrollView(.horizontal, showsIndicators: false) {
@@ -74,10 +74,10 @@ struct PetDetailView: View {
                     
                     Divider()
                     
-                    // 互动按钮
+                    // Interaction buttons
                     VStack(spacing: 12) {
                         Button {
-                            // TODO: 一键邀玩功能
+                            // TODO: invite-to-play action
                         } label: {
                             HStack {
                                 Image(systemName: "figure.walk")
@@ -92,7 +92,7 @@ struct PetDetailView: View {
                         
                         HStack(spacing: 12) {
                             Button {
-                                // TODO: 添加好友功能
+                                // TODO: add-friend action
                             } label: {
                                 HStack {
                                     Image(systemName: "person.badge.plus")
@@ -106,7 +106,7 @@ struct PetDetailView: View {
                             .buttonStyle(.bordered)
                             
                             Button {
-                                // TODO: 聊天功能
+                                // TODO: open chat
                             } label: {
                                 HStack {
                                     Image(systemName: "message.fill")
@@ -123,7 +123,7 @@ struct PetDetailView: View {
                     
                     Divider()
                     
-                    // MARK: 帖子
+                    // MARK: Posts
                     LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(Post.samplePosts) { post in
                             PostCard(post: post)

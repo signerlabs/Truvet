@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - 会话模型（消息列表 cell 用）
+// MARK: - Conversation Model (used by message list cells)
 struct ChatConversation: Identifiable, Codable {
     let id: UUID
     let otherUser: User
@@ -16,14 +16,14 @@ struct ChatConversation: Identifiable, Codable {
     let unreadCount: Int
 }
 
-// MARK: - 预览数据
+// MARK: - Preview Data
 extension ChatConversation {
-    /// 与除 currentUser 外的 5 个 sampleUser 各一个会话；为了凑够"6 个会话"再补一个"自言自语"备忘
+    /// One conversation with each of the 5 sampleUsers other than currentUser; add a self-memo to make up 6 conversations
     static let sampleConversations: [ChatConversation] = {
         let me = User.currentUser
         let others = User.sampleUsers.filter { $0.id != me.id }
 
-        // 每个会话的稳定 UUID（这样 ChatView 才能查到对应消息）
+        // Stable UUID for each conversation (so ChatView can look up the matching messages)
         let convIds: [UUID] = [
             UUID(uuidString: "22222222-0000-0000-0000-000000000001")!,
             UUID(uuidString: "22222222-0000-0000-0000-000000000002")!,

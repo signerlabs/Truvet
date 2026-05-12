@@ -4,18 +4,18 @@
 //
 //  Created by 霍去病 on 2026/05/11.
 //
-//  注意：命名故意避开 SwiftUI/Foundation 的 Notification
+//  Note: the name intentionally avoids SwiftUI/Foundation's Notification
 
 import Foundation
 
-// MARK: - 通知类型
+// MARK: - Notification Type
 enum NotificationType: String, Codable {
-    case like = "like"           // 收到点赞
-    case comment = "comment"     // 收到评论
-    case follow = "follow"       // 新关注
-    case system = "system"       // 系统通知
+    case like = "like"           // Received a like
+    case comment = "comment"     // Received a comment
+    case follow = "follow"       // New follower
+    case system = "system"       // System notification
 
-    /// SF Symbol 名
+    /// SF Symbol name
     var iconName: String {
         switch self {
         case .like:    return "heart.fill"
@@ -26,7 +26,7 @@ enum NotificationType: String, Codable {
     }
 }
 
-// MARK: - 通知模型
+// MARK: - Notification Model
 struct AppNotification: Identifiable, Codable {
     let id: UUID
     let type: NotificationType
@@ -37,7 +37,7 @@ struct AppNotification: Identifiable, Codable {
     let isRead: Bool
 }
 
-// MARK: - 预览数据
+// MARK: - Preview Data
 extension AppNotification {
     static let sampleNotifications: [AppNotification] = {
         let posts = Post.samplePosts
@@ -48,7 +48,7 @@ extension AppNotification {
             AppNotification(
                 id: UUID(),
                 type: .like,
-                fromUser: users[1], // Cooper的麻麻
+                fromUser: users[1], // Cooper's Mom
                 relatedPost: posts[0],
                 content: "赞了你的动态「带狗狗去公园玩啦～」",
                 createdAt: now.addingTimeInterval(-60 * 5),
@@ -57,7 +57,7 @@ extension AppNotification {
             AppNotification(
                 id: UUID(),
                 type: .comment,
-                fromUser: users[2], // 宠物医生小李
+                fromUser: users[2], // Pet doctor Li
                 relatedPost: posts[0],
                 content: "评论了你：「这款狗粮我家狗子也在吃」",
                 createdAt: now.addingTimeInterval(-60 * 25),
@@ -66,7 +66,7 @@ extension AppNotification {
             AppNotification(
                 id: UUID(),
                 type: .follow,
-                fromUser: users[3], // 上海宠物圈
+                fromUser: users[3], // Shanghai Pet Circle
                 relatedPost: nil,
                 content: "关注了你",
                 createdAt: now.addingTimeInterval(-60 * 60 * 2),
@@ -75,7 +75,7 @@ extension AppNotification {
             AppNotification(
                 id: UUID(),
                 type: .like,
-                fromUser: users[4], // 宠物用品测评
+                fromUser: users[4], // Pet Supplies Reviews
                 relatedPost: posts[0],
                 content: "赞了你的动态",
                 createdAt: now.addingTimeInterval(-60 * 60 * 5),
@@ -93,7 +93,7 @@ extension AppNotification {
             AppNotification(
                 id: UUID(),
                 type: .comment,
-                fromUser: users[5], // 流浪动物救助
+                fromUser: users[5], // Stray Animal Rescue
                 relatedPost: posts[0],
                 content: "回复了你的评论：「领养代替购买，必须点赞👍」",
                 createdAt: now.addingTimeInterval(-60 * 60 * 24),
@@ -102,7 +102,7 @@ extension AppNotification {
             AppNotification(
                 id: UUID(),
                 type: .follow,
-                fromUser: users[2], // 宠物医生小李
+                fromUser: users[2], // Pet doctor Li
                 relatedPost: nil,
                 content: "关注了你",
                 createdAt: now.addingTimeInterval(-60 * 60 * 36),
@@ -111,7 +111,7 @@ extension AppNotification {
             AppNotification(
                 id: UUID(),
                 type: .like,
-                fromUser: users[3], // 上海宠物圈
+                fromUser: users[3], // Shanghai Pet Circle
                 relatedPost: posts[0],
                 content: "赞了你的动态",
                 createdAt: now.addingTimeInterval(-60 * 60 * 48),

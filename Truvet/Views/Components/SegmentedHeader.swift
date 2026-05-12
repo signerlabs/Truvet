@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-/// 小红书风格的下划线 segmented 控件
-/// - 支持任意数量段（用 LabelsAreEquatable 约束泛型）
-/// - 选中下划线用 matchedGeometryEffect 做平滑滑动
+/// Xiaohongshu-style underline segmented control
+/// - Supports any number of segments (generic over Hashable items)
+/// - Selected underline uses matchedGeometryEffect for smooth sliding
 struct SegmentedHeader<Item: Hashable>: View {
     let items: [Item]
     let title: (Item) -> String
@@ -32,7 +32,7 @@ struct SegmentedHeader<Item: Hashable>: View {
                             .foregroundStyle(isSelected ? Color.primary : Color.secondary)
                             .padding(.horizontal, 4)
 
-                        // 下划线：选中段渲染实色，未选中段渲染透明，靠 matchedGeometryEffect 实现滑动
+                        // Underline: selected = filled, others = clear; matchedGeometryEffect provides the slide animation
                         if isSelected {
                             Capsule()
                                 .fill(Color.accent)

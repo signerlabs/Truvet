@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-/// 消息 Tab：顶部两段（消息 / 通知）
+/// Messages Tab: two top segments (Chats / Notifications)
 struct MessageView: View {
     enum Segment: String, CaseIterable, Hashable {
         case chats = "消息"
@@ -45,11 +45,11 @@ struct MessageView: View {
         }
     }
 
-    // MARK: - 会话列表
+    // MARK: - Conversation List
     private var chatList: some View {
         List(ChatConversation.sampleConversations) { conv in
             ZStack {
-                // NavigationLink 包裹整行，去掉默认箭头
+                // NavigationLink wraps the whole row, hiding the default chevron
                 NavigationLink(value: conv) {
                     EmptyView()
                 }
@@ -64,7 +64,7 @@ struct MessageView: View {
         .background(Color.background)
     }
 
-    // MARK: - 通知列表
+    // MARK: - Notification List
     private var notificationList: some View {
         List(AppNotification.sampleNotifications) { notification in
             NotificationRow(notification: notification)

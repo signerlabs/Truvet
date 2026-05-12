@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// 一对一聊天视图：纯 mock
+/// One-on-one chat view: pure mock
 struct ChatView: View {
     let conversation: ChatConversation
 
@@ -17,19 +17,19 @@ struct ChatView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // 消息列表
+            // Message list
             ScrollViewReader { proxy in
                 ScrollView {
                     LazyVStack(spacing: 8) {
                         ForEach(Array(messages.enumerated()), id: \.element.id) { index, msg in
-                            // 与上一条消息相隔超过 5 分钟才显示时间分隔
+                            // Only show a time divider when more than 5 minutes elapsed since the previous message
                             if shouldShowTimeDivider(at: index) {
                                 ChatTimeDivider(date: msg.createdAt)
                             }
                             ChatBubble(message: msg, otherAvatar: conversation.otherUser.avatar)
                                 .id(msg.id)
                         }
-                        // 底部锚点，方便发送新消息时滚动
+                        // Bottom anchor for auto-scroll when sending a new message
                         Color.clear.frame(height: 1).id("BOTTOM")
                     }
                     .padding(.vertical, 12)
@@ -41,7 +41,7 @@ struct ChatView: View {
                     }
                 }
                 .onAppear {
-                    // 首次进入直接定位到底部
+                    // Scroll to the bottom on first appearance
                     DispatchQueue.main.async {
                         proxy.scrollTo("BOTTOM", anchor: .bottom)
                     }
@@ -54,14 +54,14 @@ struct ChatView: View {
         .navigationTitle(conversation.otherUser.username)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            // 首次加载 mock 历史消息
+            // Load mock history messages on first appearance
             if messages.isEmpty {
                 messages = ChatMessage.samples(for: conversation.id)
             }
         }
     }
 
-    // MARK: - 输入栏
+    // MARK: - Input Bar
     private var inputBar: some View {
         HStack(spacing: 10) {
             HStack {
@@ -95,7 +95,7 @@ struct ChatView: View {
         }
     }
 
-    // MARK: - 发送
+    // MARK: - Send
     private func sendMessage() {
         let text = draft.trimmingCharacters(in: .whitespaces)
         guard !text.isEmpty else { return }
@@ -110,7 +110,7 @@ struct ChatView: View {
         draft = ""
     }
 
-    /// 判断当前位置是否需要插入时间分隔
+    /// Whether to insert a time divider at the given index
     private func shouldShowTimeDivider(at index: Int) -> Bool {
         guard index < messages.count else { return false }
         if index == 0 { return true }

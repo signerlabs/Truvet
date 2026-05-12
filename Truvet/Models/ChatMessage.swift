@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - 聊天消息模型
+// MARK: - Chat Message Model
 struct ChatMessage: Identifiable, Codable, Equatable {
     let id: UUID
     let conversationId: UUID
@@ -16,13 +16,13 @@ struct ChatMessage: Identifiable, Codable, Equatable {
     let createdAt: Date
 }
 
-// MARK: - Mock 消息生成器
+// MARK: - Mock Message Generator
 extension ChatMessage {
-    /// 6 个会话各自一套对话脚本（双向 5-10 条）
-    /// 注意：返回值按 createdAt 升序，UI 顺序展示
+    /// One conversation script per conversation (5-10 messages, bidirectional)
+    /// Note: returned messages are sorted ascending by createdAt for UI display
     static func samples(for conversationId: UUID) -> [ChatMessage] {
         let scripts: [String: [(String, Bool)]] = [
-            // Cooper的麻麻
+            // Cooper's Mom
             "22222222-0000-0000-0000-000000000001": [
                 ("在嘛？", false),
                 ("在的，怎么啦", true),
@@ -34,7 +34,7 @@ extension ChatMessage {
                 ("收到，明天见！", true),
                 ("明天下午外滩遛狗约不约？", false)
             ],
-            // 宠物医生小李
+            // Pet doctor Li
             "22222222-0000-0000-0000-000000000002": [
                 ("您好，咨询下我家狗子最近不爱吃饭", true),
                 ("最近天气变化或者换粮了吗？", false),
@@ -44,7 +44,7 @@ extension ChatMessage {
                 ("好的好的，谢谢医生", true),
                 ("已经发你私信啦，记得查收～", false)
             ],
-            // 上海宠物圈
+            // Shanghai Pet Circle
             "22222222-0000-0000-0000-000000000003": [
                 ("你好呀，关注你好久啦", true),
                 ("欢迎欢迎～", false),
@@ -53,7 +53,7 @@ extension ChatMessage {
                 ("这款狗粮我家狗子也在吃，巨爱", false),
                 ("我也喂这款，性价比真不错", true)
             ],
-            // 宠物用品测评
+            // Pet Supplies Reviews
             "22222222-0000-0000-0000-000000000004": [
                 ("姐妹，那款益生菌真的好用吗", true),
                 ("我家三只都在用，效果不错", false),
@@ -62,7 +62,7 @@ extension ChatMessage {
                 ("周六的聚会还有名额吗？", false),
                 ("还有，过来一起呀", true)
             ],
-            // 流浪动物救助
+            // Stray Animal Rescue
             "22222222-0000-0000-0000-000000000005": [
                 ("您好，想问下领养流程", true),
                 ("先填一份问卷，会有志愿者上门家访", false),
@@ -71,7 +71,7 @@ extension ChatMessage {
                 ("我把链接发你私信", false),
                 ("感谢分享！已经收藏", true)
             ],
-            // 第 6 个会话（占位，用其中一个 user）
+            // 6th conversation (placeholder, uses one of the users)
             "22222222-0000-0000-0000-000000000006": [
                 ("看到你家小白啦", false),
                 ("哈哈是的，2 岁的萨摩", true),
@@ -82,18 +82,18 @@ extension ChatMessage {
         ]
 
         let key = conversationId.uuidString.lowercased()
-        // 注意：UUID 大写转小写后字典 key 也需要小写——这里统一处理
+        // Note: UUIDs in uppercase need to be lowercased to match dictionary keys
         let normalizedScripts = Dictionary(uniqueKeysWithValues:
             scripts.map { ($0.key.lowercased(), $0.value) }
         )
         let script = normalizedScripts[key] ?? []
 
-        // 把脚本转成时间序消息，最后一条时间 ≈ now - 5 分钟，往前每条递推 8 分钟
+        // Convert the script into time-ordered messages; the last one is ~5 min ago, each earlier one 8 min before it
         let now = Date()
         let total = script.count
         return script.enumerated().map { i, item in
             let (text, isFromMe) = item
-            // i = total - 1 时是最新一条，时间最接近 now
+            // When i = total - 1 this is the most recent message, closest to now
             let secondsAgo = Double(total - i) * 8 * 60 + 300
             return ChatMessage(
                 id: UUID(),

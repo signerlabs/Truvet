@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// 消息列表单 cell：头像 + 用户名 + verified + 最后消息预览 + 相对时间 + 未读 badge
+/// Conversation list cell: avatar + username + verified badge + last message preview + relative time + unread badge
 struct ConversationRow: View {
     let conversation: ChatConversation
 
@@ -20,7 +20,7 @@ struct ConversationRow: View {
                     .frame(width: 52, height: 52)
                     .clipShape(Circle())
 
-                // 未读小红点（在头像右上角）
+                // Unread badge (top-right of avatar)
                 if conversation.unreadCount > 0 {
                     Text(conversation.unreadCount > 99 ? "99+" : "\(conversation.unreadCount)")
                         .font(.system(size: 11, weight: .semibold))
