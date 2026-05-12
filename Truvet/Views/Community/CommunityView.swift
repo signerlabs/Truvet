@@ -9,9 +9,9 @@
 import SwiftUI
 import CoreLocation
 
-/// 社区 Tab：顶部三段 + 双列瀑布流 + 右上角发布入口
+/// Community Tab: three top segments + two-column waterfall feed + top-right compose entry
 struct CommunityView: View {
-    /// 三段枚举
+    /// Segment enum
     enum Segment: String, CaseIterable, Hashable {
         case following = "关注"
         case discover  = "发现"
@@ -21,10 +21,10 @@ struct CommunityView: View {
     @State private var segment: Segment = .discover
     @State private var showComposer: Bool = false
 
-    /// 上海市中心，用于"同城"段计算距离
+    /// Downtown Shanghai, used by the "nearby" segment to compute distance
     private let cityCenter = CLLocation(latitude: 31.2304, longitude: 121.4737)
 
-    /// 双列网格
+    /// Two-column grid
     private let columns = [
         GridItem(.flexible(), spacing: 12),
         GridItem(.flexible(), spacing: 12)
@@ -33,7 +33,7 @@ struct CommunityView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // 顶部三段
+                // Top three segments
                 SegmentedHeader(
                     items: Segment.allCases,
                     title: { $0.rawValue },
@@ -44,7 +44,7 @@ struct CommunityView: View {
                 Divider()
                     .opacity(0.4)
 
-                // 主体：双列瀑布流
+                // Body: two-column waterfall feed
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(currentPosts) { post in
@@ -58,7 +58,7 @@ struct CommunityView: View {
                     .padding(.vertical, 12)
                 }
                 .refreshable {
-                    // 纯 mock：模拟下拉刷新一下网络延迟
+                    // Pure mock: simulate pull-to-refresh network latency
                     try? await Task.sleep(nanoseconds: 1_000_000_000)
                 }
                 .background(Color.background)
@@ -85,16 +85,16 @@ struct CommunityView: View {
         }
     }
 
-    /// 根据当前段过滤数据
+    /// Filter posts based on the current segment
     private var currentPosts: [Post] {
         switch segment {
         case .following:
-            // mock：仅展示前 4 篇作为"关注"
+            // Mock: only show the first 4 posts as "Following"
             return Array(Post.samplePosts.prefix(4))
         case .discover:
             return Post.samplePosts
         case .nearby:
-            // 按距离上海市中心升序
+            // Sort ascending by distance to downtown Shanghai
             return Post.samplePosts.sorted { lhs, rhs in
                 lhs.clLocation.distance(from: cityCenter) < rhs.clLocation.distance(from: cityCenter)
             }
@@ -102,7 +102,7 @@ struct CommunityView: View {
     }
 }
 
-// MARK: - Post 实现 Hashable（用于 navigationDestination(for:)）
+// MARK: - Post conforms to Hashable (for navigationDestination(for:))
 extension Post: Hashable {
     static func == (lhs: Post, rhs: Post) -> Bool { lhs.id == rhs.id }
     func hash(into hasher: inout Hasher) { hasher.combine(id) }

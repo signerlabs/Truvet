@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-/// 帖子详情：图片轮播 + 作者条 + 正文 + 评论 + 底部操作栏
+/// Post detail: image carousel + author bar + body + comments + bottom action bar
 struct PostDetailView: View {
     let post: Post
 
@@ -17,12 +17,12 @@ struct PostDetailView: View {
     @State private var isFavorited: Bool = false
     @State private var commentDraft: String = ""
 
-    /// 评论数据（稳定 mock）
+    /// Comment data (stable mock)
     private var comments: [Comment] {
         Comment.samples(for: post.id)
     }
 
-    /// Asset 兜底
+    /// Asset fallback
     private func safeImageName(_ name: String) -> String {
         UIImage(named: name) != nil ? name : "bella"
     }
@@ -48,7 +48,7 @@ struct PostDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    // MARK: - 图片轮播
+    // MARK: - Image Carousel
     private var imageCarousel: some View {
         GeometryReader { geo in
             TabView {
@@ -66,7 +66,7 @@ struct PostDetailView: View {
         .aspectRatio(3.0/4.0, contentMode: .fit)
     }
 
-    // MARK: - 作者条
+    // MARK: - Author Bar
     private var authorBar: some View {
         HStack(spacing: 10) {
             Image(post.user.avatar)
@@ -113,7 +113,7 @@ struct PostDetailView: View {
         .padding(.horizontal, 16)
     }
 
-    // MARK: - 标题 / 正文
+    // MARK: - Title / Body
     private var titleAndContent: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(post.title)
@@ -122,13 +122,13 @@ struct PostDetailView: View {
 
             Text(post.content)
                 .font(.body)
-                .lineSpacing(4) // 行距 ~1.4
+                .lineSpacing(4) // Line spacing ~1.4
                 .foregroundStyle(.primary)
         }
         .padding(.horizontal, 16)
     }
 
-    // MARK: - 话题标签
+    // MARK: - Topic Tags
     private var tagsRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
@@ -145,7 +145,7 @@ struct PostDetailView: View {
         }
     }
 
-    // MARK: - 元信息
+    // MARK: - Meta Info
     private var metaRow: some View {
         Text("\(post.likeCount * 7) 次浏览 · \(post.createdAt.relativeDescription) · 上海·浦东")
             .font(.system(size: 12))
@@ -153,7 +153,7 @@ struct PostDetailView: View {
             .padding(.horizontal, 16)
     }
 
-    // MARK: - 评论
+    // MARK: - Comments
     private var commentsSection: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("评论 \(post.commentCount)")
@@ -194,7 +194,7 @@ struct PostDetailView: View {
         }
     }
 
-    // MARK: - 底部固定栏
+    // MARK: - Bottom Action Bar
     private var bottomBar: some View {
         HStack(spacing: 12) {
             HStack {
@@ -208,7 +208,7 @@ struct PostDetailView: View {
             .padding(.vertical, 8)
             .background(Capsule().fill(Color(.systemGray6)))
 
-            // 点赞
+            // Like
             VStack(spacing: 2) {
                 Button {
                     withAnimation { isLiked.toggle() }
@@ -223,7 +223,7 @@ struct PostDetailView: View {
                     .foregroundStyle(.secondary)
             }
 
-            // 收藏
+            // Favorite
             VStack(spacing: 2) {
                 Button {
                     withAnimation { isFavorited.toggle() }
@@ -238,10 +238,10 @@ struct PostDetailView: View {
                     .foregroundStyle(.secondary)
             }
 
-            // 转发
+            // Share
             VStack(spacing: 2) {
                 Button {
-                    // 占位
+                    // Placeholder
                 } label: {
                     Image(systemName: "paperplane")
                         .font(.system(size: 22))

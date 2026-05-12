@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-/// 发布动态：纯 mock，"发布"按钮只 dismiss
+/// Post composer: pure mock, the Publish button only dismisses
 struct PostComposerView: View {
     @Environment(\.dismiss) private var dismiss
 
-    /// 6 张可选图（来自 dogs Asset）
+    /// 6 candidate images (from dog assets)
     private let candidateImages = ["bella", "lucky", "豆豆", "可乐", "小白", "泡芙"]
 
     @State private var selectedImages: Set<String> = []
@@ -23,7 +23,7 @@ struct PostComposerView: View {
 
     private let recommendedTopics = ["#遛狗日常", "#宠物生活", "#同城聚会"]
 
-    /// 我的宠物
+    /// My pets
     private var myPets: [Pet] {
         Pet.samplePets.filter { $0.ownerId == User.currentUser.id }
     }
@@ -51,7 +51,7 @@ struct PostComposerView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        // 纯 mock：直接关闭
+                        // Pure mock: just dismiss
                         dismiss()
                     } label: {
                         Text("发布")
@@ -66,7 +66,7 @@ struct PostComposerView: View {
         }
     }
 
-    // MARK: - 选图区
+    // MARK: - Image Picker
     private var imagePicker: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("选择图片")
@@ -109,14 +109,14 @@ struct PostComposerView: View {
         }
     }
 
-    // MARK: - 标题
+    // MARK: - Title
     private var titleField: some View {
         TextField("好标题更容易被推荐", text: $title)
             .font(.system(size: 18, weight: .bold))
             .padding(.vertical, 6)
     }
 
-    // MARK: - 正文
+    // MARK: - Body
     private var contentField: some View {
         ZStack(alignment: .topLeading) {
             if content.isEmpty {
@@ -134,7 +134,7 @@ struct PostComposerView: View {
         }
     }
 
-    // MARK: - 关联宠物
+    // MARK: - Associated Pet
     @ViewBuilder
     private var petPicker: some View {
         if myPets.isEmpty {
@@ -175,7 +175,7 @@ struct PostComposerView: View {
         }
     }
 
-    // MARK: - 添加位置
+    // MARK: - Add Location
     private var locationRow: some View {
         Button {
             withAnimation { locationOn.toggle() }
@@ -201,7 +201,7 @@ struct PostComposerView: View {
         .buttonStyle(.plain)
     }
 
-    // MARK: - 话题
+    // MARK: - Topics
     private var topicsRow: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("推荐话题")

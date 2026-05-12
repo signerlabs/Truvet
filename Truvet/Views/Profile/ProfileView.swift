@@ -8,22 +8,22 @@
 
 import SwiftUI
 
-/// "我" Tab：用户信息 + 我的宠物 + 我的帖子
+/// Profile Tab: user info + my pets + my posts
 struct ProfileView: View {
     private let user = User.currentUser
 
-    /// 双列网格
+    /// Two-column grid
     private let postColumns = [
         GridItem(.flexible(), spacing: 12),
         GridItem(.flexible(), spacing: 12)
     ]
 
-    /// 我的宠物
+    /// My pets
     private var myPets: [Pet] {
         Pet.samplePets.filter { $0.ownerId == user.id }
     }
 
-    /// 我的帖子
+    /// My posts
     private var myPosts: [Post] {
         Post.samplePosts.filter { $0.user.id == user.id }
     }
@@ -46,7 +46,7 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        // 占位：未来跳设置
+                        // Placeholder: future settings navigation
                     } label: {
                         Image(systemName: "gearshape")
                             .font(.system(size: 16, weight: .semibold))
@@ -91,7 +91,7 @@ struct ProfileView: View {
                     .padding(.horizontal, 32)
             }
 
-            // 统计区
+            // Stats area
             HStack(spacing: 0) {
                 statItem(value: "168", label: "关注")
                 Divider().frame(height: 20)
@@ -116,7 +116,7 @@ struct ProfileView: View {
         .frame(maxWidth: .infinity)
     }
 
-    // MARK: - 我的宠物
+    // MARK: - My Pets
     private var petsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -124,7 +124,7 @@ struct ProfileView: View {
                     .font(.system(size: 16, weight: .semibold))
                 Spacer()
                 Button("管理") {
-                    // 占位
+                    // Placeholder
                 }
                 .font(.system(size: 14))
                 .foregroundStyle(Color.accent)
@@ -187,7 +187,7 @@ struct ProfileView: View {
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundStyle(.secondary)
             Text(" ")
-                .font(.system(size: 11)) // 占位对齐
+                .font(.system(size: 11)) // Placeholder for alignment
         }
         .frame(width: 92)
         .padding(.vertical, 12)
@@ -197,7 +197,7 @@ struct ProfileView: View {
         )
     }
 
-    // MARK: - 我的帖子
+    // MARK: - My Posts
     private var myPostsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("我的帖子")
@@ -222,15 +222,15 @@ struct ProfileView: View {
                 .padding(.horizontal, 12)
             }
         }
-        // ProfileView 自己注册 Post 跳转，复用 PostDetailView
+        // ProfileView registers its own Post navigation, reusing PostDetailView
         .background(
-            // 注：navigationDestination 必须挂到祖先；为避免与 Pet 冲突，这里挂在外层
+            // Note: navigationDestination must be attached to an ancestor; to avoid conflicting with Pet, place it on the outer view
             Color.clear
         )
     }
 }
 
-// MARK: - Pet 实现 Hashable（用于 navigationDestination(for:)）
+// MARK: - Pet conforms to Hashable (for navigationDestination(for:))
 extension Pet: Hashable {
     static func == (lhs: Pet, rhs: Pet) -> Bool { lhs.id == rhs.id }
     func hash(into hasher: inout Hasher) { hasher.combine(id) }

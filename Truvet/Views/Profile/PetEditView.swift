@@ -72,7 +72,7 @@ struct PetEditView: View {
         }
     }
 
-    // MARK: - 名字
+    // MARK: - Name
     private var nameField: some View {
         sectionContainer(title: "名字") {
             TextField("给毛孩子起个名字", text: $name)
@@ -81,7 +81,7 @@ struct PetEditView: View {
         }
     }
 
-    // MARK: - 品种
+    // MARK: - Breed
     private var breedField: some View {
         sectionContainer(title: "品种") {
             Picker("品种", selection: $breed) {
@@ -95,7 +95,7 @@ struct PetEditView: View {
         }
     }
 
-    // MARK: - 年龄
+    // MARK: - Age
     private var ageField: some View {
         sectionContainer(title: "年龄") {
             Stepper(value: $age, in: 0...20) {
@@ -108,7 +108,7 @@ struct PetEditView: View {
         }
     }
 
-    // MARK: - 活跃时间
+    // MARK: - Active Time
     private var activeTimeField: some View {
         sectionContainer(title: "活跃时间") {
             TextField("例如：上午8-10点，下午4-6点", text: $activeTime)
@@ -117,7 +117,7 @@ struct PetEditView: View {
         }
     }
 
-    // MARK: - 标签多选
+    // MARK: - Multi-select Tags
     private var tagsField: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("性格标签")
@@ -139,10 +139,10 @@ struct PetEditView: View {
         }
     }
 
-    // MARK: - 保存按钮
+    // MARK: - Save Button
     private var saveButton: some View {
         Button {
-            // 纯 mock：仅返回
+            // Pure mock: just dismiss
             dismiss()
         } label: {
             Text("保存")
@@ -155,7 +155,7 @@ struct PetEditView: View {
         .buttonStyle(.plain)
     }
 
-    // MARK: - 小工具：分区容器
+    // MARK: - Helper: Section Container
     @ViewBuilder
     private func sectionContainer<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 6) {
