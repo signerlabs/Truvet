@@ -65,7 +65,7 @@ struct ChatView: View {
     private var inputBar: some View {
         HStack(spacing: 10) {
             HStack {
-                TextField("发条消息...", text: $draft, axis: .vertical)
+                TextField("Type a message...", text: $draft, axis: .vertical)
                     .font(.system(size: 15))
                     .lineLimit(1...4)
                     .focused($inputFocused)

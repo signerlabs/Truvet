@@ -98,7 +98,7 @@ struct PostDetailView: View {
             Button {
                 withAnimation { isFollowing.toggle() }
             } label: {
-                Text(isFollowing ? "已关注" : "关注")
+                Text(isFollowing ? "Following" : "Follow")
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(isFollowing ? Color.secondary : Color.white)
                     .padding(.horizontal, 14)
@@ -147,7 +147,7 @@ struct PostDetailView: View {
 
     // MARK: - Meta Info
     private var metaRow: some View {
-        Text("\(post.likeCount * 7) 次浏览 · \(post.createdAt.relativeDescription) · 上海·浦东")
+        Text("\(post.likeCount * 7) views · \(post.createdAt.relativeDescription) · Shanghai · Pudong")
             .font(.system(size: 12))
             .foregroundStyle(.secondary)
             .padding(.horizontal, 16)
@@ -156,7 +156,7 @@ struct PostDetailView: View {
     // MARK: - Comments
     private var commentsSection: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("评论 \(post.commentCount)")
+            Text("Comments \(post.commentCount)")
                 .font(.system(size: 15, weight: .semibold))
                 .padding(.horizontal, 16)
 
@@ -201,7 +201,7 @@ struct PostDetailView: View {
                 Image(systemName: "square.and.pencil")
                     .font(.system(size: 14))
                     .foregroundStyle(.secondary)
-                TextField("说点什么...", text: $commentDraft)
+                TextField("Say something...", text: $commentDraft)
                     .font(.system(size: 14))
             }
             .padding(.horizontal, 12)
@@ -233,7 +233,7 @@ struct PostDetailView: View {
                         .foregroundStyle(isFavorited ? Color.yellow : Color.primary)
                 }
                 .buttonStyle(.plain)
-                Text("收藏")
+                Text("Save")
                     .font(.system(size: 10))
                     .foregroundStyle(.secondary)
             }

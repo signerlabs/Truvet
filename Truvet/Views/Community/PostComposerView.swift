@@ -21,7 +21,7 @@ struct PostComposerView: View {
     @State private var locationOn: Bool = false
     @State private var selectedTopics: Set<String> = []
 
-    private let recommendedTopics = ["#遛狗日常", "#宠物生活", "#同城聚会"]
+    private let recommendedTopics = ["#DailyWalks", "#PetLife", "#LocalMeetups"]
 
     /// My pets
     private var myPets: [Pet] {
@@ -43,18 +43,18 @@ struct PostComposerView: View {
                 .padding(.vertical, 16)
             }
             .background(Color.background)
-            .navigationTitle("发布动态")
+            .navigationTitle("New Post")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("取消") { dismiss() }
+                    Button("Cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         // Pure mock: just dismiss
                         dismiss()
                     } label: {
-                        Text("发布")
+                        Text("Publish")
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundStyle(.white)
                             .padding(.horizontal, 12)
@@ -69,7 +69,7 @@ struct PostComposerView: View {
     // MARK: - Image Picker
     private var imagePicker: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("选择图片")
+            Text("Choose Photos")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundStyle(.secondary)
 
@@ -111,7 +111,7 @@ struct PostComposerView: View {
 
     // MARK: - Title
     private var titleField: some View {
-        TextField("好标题更容易被推荐", text: $title)
+        TextField("A catchy title gets more reach", text: $title)
             .font(.system(size: 18, weight: .bold))
             .padding(.vertical, 6)
     }
@@ -120,7 +120,7 @@ struct PostComposerView: View {
     private var contentField: some View {
         ZStack(alignment: .topLeading) {
             if content.isEmpty {
-                Text("分享和宠物的故事...")
+                Text("Share a story about your pet...")
                     .font(.system(size: 15))
                     .foregroundStyle(.tertiary)
                     .padding(.top, 8)
@@ -141,7 +141,7 @@ struct PostComposerView: View {
             EmptyView()
         } else {
             VStack(alignment: .leading, spacing: 10) {
-                Text("关联宠物")
+                Text("Tag a Pet")
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(.secondary)
 
@@ -184,7 +184,7 @@ struct PostComposerView: View {
                 Image(systemName: locationOn ? "mappin.circle.fill" : "mappin.circle")
                     .font(.system(size: 18))
                     .foregroundStyle(locationOn ? Color.accent : .secondary)
-                Text(locationOn ? "上海·世纪公园" : "添加位置")
+                Text(locationOn ? "Shanghai · Century Park" : "Add Location")
                     .font(.system(size: 14))
                     .foregroundStyle(locationOn ? Color.accent : .primary)
                 Spacer()
@@ -204,7 +204,7 @@ struct PostComposerView: View {
     // MARK: - Topics
     private var topicsRow: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("推荐话题")
+            Text("Suggested Topics")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundStyle(.secondary)
 

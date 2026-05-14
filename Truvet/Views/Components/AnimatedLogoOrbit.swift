@@ -256,6 +256,7 @@ class AnimatedLogoOrbitScene: SKScene {
 }
 
 #Preview {
+    // Asset names — these are images stored in Assets.xcassets and are not user-visible strings.
     AnimatedLogoOrbit(
         images: ["豆豆", "泡芙", "小白", "可乐", "bella", "lucky"]
     )

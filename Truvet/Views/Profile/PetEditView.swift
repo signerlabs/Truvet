@@ -53,7 +53,7 @@ struct PetEditView: View {
             .padding(.vertical, 16)
         }
         .background(Color.background)
-        .navigationTitle("编辑宠物")
+        .navigationTitle("Edit Pet")
         .navigationBarTitleDisplayMode(.inline)
     }
 
@@ -66,7 +66,7 @@ struct PetEditView: View {
                 .frame(width: 80, height: 80)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(.ultraThickMaterial, lineWidth: 3))
-            Text("头像")
+            Text("Avatar")
                 .font(.system(size: 12))
                 .foregroundStyle(.tertiary)
         }
@@ -74,8 +74,8 @@ struct PetEditView: View {
 
     // MARK: - Name
     private var nameField: some View {
-        sectionContainer(title: "名字") {
-            TextField("给毛孩子起个名字", text: $name)
+        sectionContainer(title: "Name") {
+            TextField("Give your fur kid a name", text: $name)
                 .font(.system(size: 15))
                 .padding(.vertical, 8)
         }
@@ -83,8 +83,8 @@ struct PetEditView: View {
 
     // MARK: - Breed
     private var breedField: some View {
-        sectionContainer(title: "品种") {
-            Picker("品种", selection: $breed) {
+        sectionContainer(title: "Breed") {
+            Picker("Breed", selection: $breed) {
                 ForEach(PetBreed.allCases) { b in
                     Text(b.displayName).tag(b)
                 }
@@ -97,10 +97,10 @@ struct PetEditView: View {
 
     // MARK: - Age
     private var ageField: some View {
-        sectionContainer(title: "年龄") {
+        sectionContainer(title: "Age") {
             Stepper(value: $age, in: 0...20) {
                 HStack {
-                    Text(age == 0 ? "未知" : "\(age) 岁")
+                    Text(age == 0 ? "Unknown" : (age == 1 ? "1 yr" : "\(age) yrs"))
                         .font(.system(size: 15))
                     Spacer()
                 }
@@ -110,8 +110,8 @@ struct PetEditView: View {
 
     // MARK: - Active Time
     private var activeTimeField: some View {
-        sectionContainer(title: "活跃时间") {
-            TextField("例如：上午8-10点，下午4-6点", text: $activeTime)
+        sectionContainer(title: "Active Hours") {
+            TextField("e.g. 8-10 AM, 4-6 PM", text: $activeTime)
                 .font(.system(size: 15))
                 .padding(.vertical, 8)
         }
@@ -120,7 +120,7 @@ struct PetEditView: View {
     // MARK: - Multi-select Tags
     private var tagsField: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("性格标签")
+            Text("Personality Tags")
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundStyle(.secondary)
 
@@ -145,7 +145,7 @@ struct PetEditView: View {
             // Pure mock: just dismiss
             dismiss()
         } label: {
-            Text("保存")
+            Text("Save")
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)

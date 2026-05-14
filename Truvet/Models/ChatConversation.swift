@@ -33,12 +33,12 @@ extension ChatConversation {
             UUID(uuidString: "22222222-0000-0000-0000-000000000006")!
         ]
         let previews = [
-            "明天下午外滩遛狗约不约？",
-            "已经发你私信啦，记得查收～",
-            "这款狗粮我家狗子也在吃，巨爱",
-            "周六的聚会还有名额吗？",
-            "感谢分享！已经收藏",
-            "你们家小白真的好可爱！"
+            "Walk along the Bund tomorrow afternoon?",
+            "Just DM'd you, check your inbox!",
+            "My dog eats that same food and loves it",
+            "Any spots left for the Saturday meetup?",
+            "Thanks for sharing — saved it!",
+            "Snowy is just too cute!"
         ]
         let unread = [2, 0, 1, 0, 0, 3]
         let minutesAgo: [Double] = [5, 35, 120, 360, 1440, 4320]

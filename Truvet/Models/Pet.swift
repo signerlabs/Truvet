@@ -32,11 +32,11 @@ struct Pet: Identifiable, Codable {
     // Formatted age display
     var ageDescription: String {
         if age == 0 {
-            return "未知"
+            return "Unknown"
         } else if age == 1 {
-            return "1岁"
+            return "1 yr"
         } else {
-            return "\(age)岁"
+            return "\(age) yrs"
         }
     }
 
@@ -49,49 +49,49 @@ struct Pet: Identifiable, Codable {
 // MARK: - Preview Data
 extension Pet {
     // 6 iconic Shanghai coordinates, one-to-one with the 6 pets
-    // Xiaobai → Lujiazui / Puff → The Bund / Doudou → Jing'an Temple / Bella → Xujiahui / Lucky → Century Park / Cola → Hongqiao
+    // Snowy → Lujiazui / Puff → The Bund / Bean → Jing'an Temple / Bella → Xujiahui / Lucky → Century Park / Cola → Hongqiao
     static let samplePets = [
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // Pet Owner Wang
-            name: "小白",
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // Alex Walker
+            name: "Snowy",
             avatar: "小白",
             breed: .samoyed,
             age: 2,
             tags: [.friendly, .energetic, .lovesKids],
-            activeTime: "上午8-10点",
+            activeTime: "8-10 AM",
             latitude: 31.2397,
             longitude: 121.4998 // Lujiazui
         ),
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // Pet Owner Wang
-            name: "泡芙",
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, // Alex Walker
+            name: "Puff",
             avatar: "泡芙",
             breed: .poodle,
             age: 3,
             tags: [.gentle, .quiet, .smart],
-            activeTime: "下午4-6点",
+            activeTime: "4-6 PM",
             latitude: 31.2397,
             longitude: 121.4906 // The Bund
         ),
         Pet(
             ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000002")!, // Cooper's Mom
-            name: "豆豆",
+            name: "Bean",
             avatar: "豆豆",
             breed: .corgi,
             age: 1,
             tags: [.playful, .curious, .foodie],
-            activeTime: "上午9-11点，下午5-7点",
+            activeTime: "9-11 AM, 5-7 PM",
             latitude: 31.2236,
             longitude: 121.4458 // Jing'an Temple
         ),
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000003")!, // Pet doctor Li
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000003")!, // Dr. Liam Chen
             name: "Bella",
             avatar: "bella",
             breed: .goldenRetriever,
             age: 4,
             tags: [.friendly, .loyal, .lovesFetch],
-            activeTime: "上午7-9点，下午6-8点",
+            activeTime: "7-9 AM, 6-8 PM",
             latitude: 31.1948,
             longitude: 121.4365 // Xujiahui
         ),
@@ -102,18 +102,18 @@ extension Pet {
             breed: .labrador,
             age: 2,
             tags: [.energetic, .goodWithDogs, .lovesWater],
-            activeTime: "全天",
+            activeTime: "All day",
             latitude: 31.2155,
             longitude: 121.5471 // Century Park
         ),
         Pet(
-            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000005")!, // Pet Supplies Reviews
-            name: "可乐",
+            ownerId: UUID(uuidString: "00000000-0000-0000-0000-000000000005")!, // Pet Gear Reviews
+            name: "Cola",
             avatar: "可乐",
             breed: .shibaInu,
             age: 3,
             tags: [.smart, .curious, .trained],
-            activeTime: "上午10-12点，下午3-5点",
+            activeTime: "10 AM-12 PM, 3-5 PM",
             latitude: 31.1972,
             longitude: 121.4007 // Hongqiao
         )
@@ -137,26 +137,26 @@ enum PetBreed: String, Codable, CaseIterable, Identifiable {
     case beagle = "beagle"
     case mixedBreed = "mixed_breed"
     case other = "other"
-    
+
     var id: String { rawValue }
-    
+
     var displayName: String {
         switch self {
-        case .goldenRetriever: return "金毛"
-        case .corgi: return "柯基"
-        case .husky: return "哈士奇"
-        case .poodle: return "泰迪"
-        case .labrador: return "拉布拉多"
-        case .shibaInu: return "柴犬"
-        case .samoyed: return "萨摩耶"
-        case .chihuahua: return "吉娃娃"
-        case .pomeranian: return "博美"
-        case .frenchBulldog: return "法斗"
-        case .borderCollie: return "边牧"
-        case .germanShepherd: return "德牧"
-        case .beagle: return "比格"
-        case .mixedBreed: return "混血"
-        case .other: return "其他"
+        case .goldenRetriever: return "Golden Retriever"
+        case .corgi: return "Corgi"
+        case .husky: return "Husky"
+        case .poodle: return "Poodle"
+        case .labrador: return "Labrador"
+        case .shibaInu: return "Shiba Inu"
+        case .samoyed: return "Samoyed"
+        case .chihuahua: return "Chihuahua"
+        case .pomeranian: return "Pomeranian"
+        case .frenchBulldog: return "French Bulldog"
+        case .borderCollie: return "Border Collie"
+        case .germanShepherd: return "German Shepherd"
+        case .beagle: return "Beagle"
+        case .mixedBreed: return "Mixed Breed"
+        case .other: return "Other"
         }
     }
 }
@@ -178,29 +178,29 @@ enum PetTag: String, Codable, CaseIterable, Identifiable {
     case lovesFetch = "loves_fetch"
     case lovesWater = "loves_water"
     case foodie = "foodie"
-    
+
     var id: String { rawValue }
-    
+
     var displayName: String {
         switch self {
-        case .energetic: return "活泼"
-        case .friendly: return "友好"
-        case .gentle: return "温柔"
-        case .playful: return "爱玩"
-        case .quiet: return "安静"
-        case .smart: return "聪明"
-        case .loyal: return "忠诚"
-        case .curious: return "好奇"
-        case .shy: return "害羞"
-        case .trained: return "训练有素"
-        case .lovesKids: return "喜欢小孩"
-        case .goodWithDogs: return "狗缘好"
-        case .lovesFetch: return "爱玩飞盘"
-        case .lovesWater: return "喜欢游泳"
-        case .foodie: return "吃货"
+        case .energetic: return "Energetic"
+        case .friendly: return "Friendly"
+        case .gentle: return "Gentle"
+        case .playful: return "Playful"
+        case .quiet: return "Quiet"
+        case .smart: return "Smart"
+        case .loyal: return "Loyal"
+        case .curious: return "Curious"
+        case .shy: return "Shy"
+        case .trained: return "Trained"
+        case .lovesKids: return "Loves Kids"
+        case .goodWithDogs: return "Dog-Friendly"
+        case .lovesFetch: return "Loves Fetch"
+        case .lovesWater: return "Water Lover"
+        case .foodie: return "Foodie"
         }
     }
-    
+
     var emoji: String {
         switch self {
         case .energetic: return "⚡️"

@@ -71,11 +71,11 @@ struct ChatTimeDivider: View {
     VStack(spacing: 10) {
         ChatTimeDivider(date: Date().addingTimeInterval(-3600))
         ChatBubble(
-            message: ChatMessage(id: UUID(), conversationId: UUID(), content: "今天去外滩遛狗吗？", isFromMe: false, createdAt: Date()),
+            message: ChatMessage(id: UUID(), conversationId: UUID(), content: "Walk along the Bund today?", isFromMe: false, createdAt: Date()),
             otherAvatar: "Cooper的麻麻"
         )
         ChatBubble(
-            message: ChatMessage(id: UUID(), conversationId: UUID(), content: "好呀好呀，约几点？", isFromMe: true, createdAt: Date()),
+            message: ChatMessage(id: UUID(), conversationId: UUID(), content: "Sounds great! What time?", isFromMe: true, createdAt: Date()),
             otherAvatar: "Cooper的麻麻"
         )
     }

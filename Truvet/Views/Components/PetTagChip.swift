@@ -74,8 +74,8 @@ struct TopicChip: View {
             PetTagChip(tag: .quiet, isSelected: false)
         }
         HStack {
-            TopicChip(text: "#遛狗日常", isSelected: true)
-            TopicChip(text: "#宠物生活", isSelected: false)
+            TopicChip(text: "#DailyWalks", isSelected: true)
+            TopicChip(text: "#PetLife", isSelected: false)
         }
     }
     .padding()

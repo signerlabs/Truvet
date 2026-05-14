@@ -10,8 +10,8 @@ import SwiftUI
 /// Messages Tab: two top segments (Chats / Notifications)
 struct MessageView: View {
     enum Segment: String, CaseIterable, Hashable {
-        case chats = "消息"
-        case notifications = "通知"
+        case chats = "Chats"
+        case notifications = "Notifications"
     }
 
     @State private var segment: Segment = .chats
@@ -36,7 +36,7 @@ struct MessageView: View {
                     notificationList
                 }
             }
-            .navigationTitle("消息")
+            .navigationTitle("Messages")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: ChatConversation.self) { conv in
                 ChatView(conversation: conv)

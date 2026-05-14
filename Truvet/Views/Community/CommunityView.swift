@@ -12,9 +12,9 @@ import CoreLocation
 struct CommunityView: View {
     /// Segment enum
     enum Segment: String, CaseIterable, Hashable {
-        case following = "关注"
-        case discover  = "发现"
-        case nearby    = "同城"
+        case following = "Following"
+        case discover  = "Discover"
+        case nearby    = "Nearby"
     }
 
     @State private var segment: Segment = .discover
@@ -62,7 +62,7 @@ struct CommunityView: View {
                 }
                 .background(Color.background)
             }
-            .navigationTitle("社区")
+            .navigationTitle("Community")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

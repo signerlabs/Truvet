@@ -82,7 +82,7 @@ struct PetDetailView: View {
                             HStack {
                                 Image(systemName: "figure.walk")
                                     .font(.title3)
-                                Text("一键邀玩")
+                                Text("Invite to Play")
                                     .font(.headline)
                             }
                             .padding(.vertical, 2)
@@ -96,7 +96,7 @@ struct PetDetailView: View {
                             } label: {
                                 HStack {
                                     Image(systemName: "person.badge.plus")
-                                    Text("添加好友")
+                                    Text("Add Friend")
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
                                 }
@@ -110,7 +110,7 @@ struct PetDetailView: View {
                             } label: {
                                 HStack {
                                     Image(systemName: "message.fill")
-                                    Text("聊天")
+                                    Text("Message")
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
                                 }

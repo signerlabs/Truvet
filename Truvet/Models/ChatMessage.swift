@@ -24,60 +24,60 @@ extension ChatMessage {
         let scripts: [String: [(String, Bool)]] = [
             // Cooper's Mom
             "22222222-0000-0000-0000-000000000001": [
-                ("在嘛？", false),
-                ("在的，怎么啦", true),
-                ("明天下午有空一起遛狗吗？", false),
-                ("外滩那边人是不是太多", true),
-                ("可以去世纪公园，狗友也多", false),
-                ("好呀好呀，几点？", true),
-                ("下午 3 点吧，南门集合", false),
-                ("收到，明天见！", true),
-                ("明天下午外滩遛狗约不约？", false)
+                ("You there?", false),
+                ("Yep, what's up", true),
+                ("Want to walk the dogs tomorrow afternoon?", false),
+                ("The Bund's gonna be crowded though", true),
+                ("Century Park is great, lots of dog folks there too", false),
+                ("Sure! What time?", true),
+                ("3 PM at the south gate", false),
+                ("Got it, see you tomorrow!", true),
+                ("Walk along the Bund tomorrow afternoon?", false)
             ],
-            // Pet doctor Li
+            // Dr. Liam Chen
             "22222222-0000-0000-0000-000000000002": [
-                ("您好，咨询下我家狗子最近不爱吃饭", true),
-                ("最近天气变化或者换粮了吗？", false),
-                ("没换粮，天气倒是冷了", true),
-                ("建议先观察 24-48 小时，注意精神状态", false),
-                ("如果伴随呕吐拉稀就要送医", false),
-                ("好的好的，谢谢医生", true),
-                ("已经发你私信啦，记得查收～", false)
+                ("Hi doc, my dog hasn't had much appetite lately", true),
+                ("Any change in weather or new food recently?", false),
+                ("No new food. It's been getting colder though", true),
+                ("Watch for 24-48 hours, check overall energy levels", false),
+                ("If vomiting or diarrhea kicks in, head to the clinic", false),
+                ("Got it, thank you doctor", true),
+                ("Just DM'd you, check your inbox!", false)
             ],
             // Shanghai Pet Circle
             "22222222-0000-0000-0000-000000000003": [
-                ("你好呀，关注你好久啦", true),
-                ("欢迎欢迎～", false),
-                ("看到你们办的聚会，超想参加", true),
-                ("下次活动在世纪公园南门集合", false),
-                ("这款狗粮我家狗子也在吃，巨爱", false),
-                ("我也喂这款，性价比真不错", true)
+                ("Hey there, been following you for a while!", true),
+                ("Welcome welcome!", false),
+                ("Saw your meetups — would love to join one", true),
+                ("Next one is at Century Park south gate", false),
+                ("My dog eats that same food and loves it", false),
+                ("Same here, great value for the price", true)
             ],
-            // Pet Supplies Reviews
+            // Pet Gear Reviews
             "22222222-0000-0000-0000-000000000004": [
-                ("姐妹，那款益生菌真的好用吗", true),
-                ("我家三只都在用，效果不错", false),
-                ("胃口和便便都规律多了", false),
-                ("好的，下单试试", true),
-                ("周六的聚会还有名额吗？", false),
-                ("还有，过来一起呀", true)
+                ("Hey, does that probiotic actually work?", true),
+                ("Mine have been on it for months, works great", false),
+                ("Appetite and bathroom schedule both improved", false),
+                ("Cool, gonna grab one", true),
+                ("Any spots left for the Saturday meetup?", false),
+                ("Yep, come on through!", true)
             ],
-            // Stray Animal Rescue
+            // Stray Rescue HQ
             "22222222-0000-0000-0000-000000000005": [
-                ("您好，想问下领养流程", true),
-                ("先填一份问卷，会有志愿者上门家访", false),
-                ("家访通过就可以接狗狗回家啦", false),
-                ("好的，问卷在哪里填？", true),
-                ("我把链接发你私信", false),
-                ("感谢分享！已经收藏", true)
+                ("Hi, can you walk me through the adoption process?", true),
+                ("First a questionnaire, then a volunteer home visit", false),
+                ("If the home visit passes, you take your new buddy home!", false),
+                ("Got it, where do I find the questionnaire?", true),
+                ("Sending you the link via DM", false),
+                ("Thanks for sharing — saved it!", true)
             ],
             // 6th conversation (placeholder, uses one of the users)
             "22222222-0000-0000-0000-000000000006": [
-                ("看到你家小白啦", false),
-                ("哈哈是的，2 岁的萨摩", true),
-                ("毛量真足", false),
-                ("梳毛梳到怀疑人生🥲", true),
-                ("你们家小白真的好可爱！", false)
+                ("I spotted your Snowy!", false),
+                ("Haha yep, 2-year-old Samoyed", true),
+                ("That coat is unreal", false),
+                ("Brushing him is a full-time job 🥲", true),
+                ("Snowy is just too cute!", false)
             ]
         ]
 

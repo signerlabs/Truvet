@@ -56,15 +56,15 @@ struct SegmentedHeader<Item: Hashable>: View {
 
 #Preview {
     struct PreviewWrapper: View {
-        @State var selection = "发现"
+        @State var selection = "Discover"
         var body: some View {
             VStack {
                 SegmentedHeader(
-                    items: ["关注", "发现", "同城"],
+                    items: ["Following", "Discover", "Nearby"],
                     title: { $0 },
                     selection: $selection
                 )
-                Text("当前：\(selection)")
+                Text("Current: \(selection)")
                     .padding()
                 Spacer()
             }

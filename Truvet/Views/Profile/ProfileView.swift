@@ -40,7 +40,7 @@ struct ProfileView: View {
                 .padding(.bottom, 24)
             }
             .background(Color.background)
-            .navigationTitle("我")
+            .navigationTitle("Me")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -92,11 +92,11 @@ struct ProfileView: View {
 
             // Stats area
             HStack(spacing: 0) {
-                statItem(value: "168", label: "关注")
+                statItem(value: "168", label: "Following")
                 Divider().frame(height: 20)
-                statItem(value: "2.3k", label: "粉丝")
+                statItem(value: "2.3k", label: "Followers")
                 Divider().frame(height: 20)
-                statItem(value: "15.6k", label: "获赞")
+                statItem(value: "15.6k", label: "Likes")
             }
             .padding(.top, 4)
         }
@@ -119,10 +119,10 @@ struct ProfileView: View {
     private var petsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("我的宠物")
+                Text("My Pets")
                     .font(.system(size: 16, weight: .semibold))
                 Spacer()
-                Button("管理") {
+                Button("Manage") {
                     // Placeholder
                 }
                 .font(.system(size: 14))
@@ -182,7 +182,7 @@ struct ProfileView: View {
                     .font(.system(size: 24))
                     .foregroundStyle(Color(.systemGray2))
             }
-            Text("添加宠物")
+            Text("Add Pet")
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundStyle(.secondary)
             Text(" ")
@@ -199,12 +199,12 @@ struct ProfileView: View {
     // MARK: - My Posts
     private var myPostsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("我的帖子")
+            Text("My Posts")
                 .font(.system(size: 16, weight: .semibold))
                 .padding(.horizontal, 16)
 
             if myPosts.isEmpty {
-                Text("还没有发布过帖子～")
+                Text("No posts yet")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity)

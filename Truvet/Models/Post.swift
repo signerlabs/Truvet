@@ -36,12 +36,12 @@ extension Post {
         Post(
             id: UUID(uuidString: "11111111-0000-0000-0000-000000000001")!,
             images: ["bella", "小白", "lucky"],
-            title: "带狗狗去公园玩啦～",
-            content: "今天天气真好，带着我家的宝贝们去公园散步，它们玩得可开心了！#遛狗日常 阳光明媚的周末，最适合带毛孩子出来透透气💕",
+            title: "Park day with the pups!",
+            content: "The weather was perfect today, so I took my babies out for a walk in the park. They had so much fun! #DailyWalks Sunny weekends are made for getting the fur kids some fresh air 💕",
             likeCount: 1234,
             commentCount: 89,
-            user: User.sampleUsers[0], // Pet Owner Wang
-            tags: ["遛狗日常", "狗狗", "宠物生活"],
+            user: User.sampleUsers[0], // Alex Walker
+            tags: ["DailyWalks", "Dogs", "PetLife"],
             createdAt: Date().addingTimeInterval(-3600),
             latitude: 31.2219,
             longitude: 121.5383
@@ -49,12 +49,12 @@ extension Post {
         Post(
             id: UUID(uuidString: "11111111-0000-0000-0000-000000000002")!,
             images: ["豆豆"],
-            title: "新技能GET！握手啦🐾",
-            content: "经过两周的训练，豆豆终于学会握手了！每次给它零食的时候都会主动伸出小爪爪，太可爱了吧～各位铲屎官有什么好的训练技巧吗？",
+            title: "New trick unlocked! Handshake 🐾",
+            content: "After two weeks of training, Bean finally learned how to shake! Every time I bring out a treat she sticks out her little paw — so cute. Any training tips from fellow pet parents?",
             likeCount: 892,
             commentCount: 56,
             user: User.sampleUsers[1], // Cooper's Mom
-            tags: ["狗狗训练", "宠物技能", "日常分享"],
+            tags: ["DogTraining", "PetTricks", "DailyLife"],
             createdAt: Date().addingTimeInterval(-7200),
             latitude: 31.2304,
             longitude: 121.4737
@@ -62,12 +62,12 @@ extension Post {
         Post(
             id: UUID(uuidString: "11111111-0000-0000-0000-000000000003")!,
             images: ["可乐", "bella"],
-            title: "宠物医院体检记录📋",
-            content: "今天带可乐和 Bella 去做年度体检，两只狗狗都很健康！医生说体重控制得不错，继续保持～提醒大家记得定期给毛孩子做体检哦",
+            title: "Annual checkup at the vet 📋",
+            content: "Took Cola and Bella in for their yearly checkup today — both dogs are in great shape! The vet said their weight is on point. Friendly reminder to schedule annual checkups for your fur kids too.",
             likeCount: 2156,
             commentCount: 134,
-            user: User.sampleUsers[2], // Pet doctor Li
-            tags: ["宠物健康", "体检", "养宠日常"],
+            user: User.sampleUsers[2], // Dr. Liam Chen
+            tags: ["PetHealth", "VetVisit", "PetLife"],
             createdAt: Date().addingTimeInterval(-14400),
             latitude: 31.2020,
             longitude: 121.4985
@@ -75,12 +75,12 @@ extension Post {
         Post(
             id: UUID(uuidString: "11111111-0000-0000-0000-000000000004")!,
             images: ["泡芙", "豆豆", "可乐"],
-            title: "周末狗狗聚会🎉",
-            content: "组织了一场狗狗聚会，三只小可爱玩得超级开心！从早上玩到下午，累得回家倒头就睡😴 有没有上海的铲屎官想一起组织下次聚会？",
+            title: "Weekend doggie meetup 🎉",
+            content: "Hosted a small dog meetup this weekend — three little cuties had the absolute best time! Played from morning till afternoon and went home to crash 😴 Any Shanghai pet parents want to organize the next one?",
             likeCount: 3421,
             commentCount: 287,
             user: User.sampleUsers[3], // Shanghai Pet Circle
-            tags: ["狗狗聚会", "宠物社交", "上海"],
+            tags: ["DogMeetup", "PetSocial", "Shanghai"],
             createdAt: Date().addingTimeInterval(-21600),
             latitude: 31.1843,
             longitude: 121.5219
@@ -88,12 +88,12 @@ extension Post {
         Post(
             id: UUID(uuidString: "11111111-0000-0000-0000-000000000005")!,
             images: ["小白", "bella"],
-            title: "狗粮测评｜这款真的绝了！",
-            content: "最近试了这款新的天然狗粮，小白和 Bella 都超级喜欢！营养配比也很科学，毛色明显变亮了。分享给大家～有需要的可以看评论区链接",
+            title: "Dog food review — this one's a winner!",
+            content: "Recently tried this new natural dog food and Snowy and Bella are obsessed! The nutrition profile is solid and their coats are noticeably shinier. Sharing in case you're shopping around — link in the comments.",
             likeCount: 567,
             commentCount: 42,
-            user: User.sampleUsers[4], // Pet Supplies Reviews
-            tags: ["狗粮测评", "宠物用品", "种草"],
+            user: User.sampleUsers[4], // Pet Gear Reviews
+            tags: ["FoodReview", "PetGear", "MustHave"],
             createdAt: Date().addingTimeInterval(-28800),
             latitude: 31.1956,
             longitude: 121.4310
@@ -101,12 +101,12 @@ extension Post {
         Post(
             id: UUID(uuidString: "11111111-0000-0000-0000-000000000006")!,
             images: ["lucky"],
-            title: "救助流浪狗的故事❤️",
-            content: "一个月前在小区门口遇到这只流浪的 Lucky，当时瘦得皮包骨头...现在经过悉心照料已经恢复健康了！决定正式收养它💕 呼吁大家以领养代替购买",
+            title: "Lucky's rescue story ❤️",
+            content: "I found Lucky a month ago, wandering near my apartment — skin and bones. After weeks of care he's healthy again, and I've officially decided to adopt him 💕 Adopt, don't shop.",
             likeCount: 8923,
             commentCount: 456,
-            user: User.sampleUsers[5], // Stray Animal Rescue
-            tags: ["流浪狗救助", "领养", "公益"],
+            user: User.sampleUsers[5], // Stray Rescue HQ
+            tags: ["StrayRescue", "Adoption", "DoGood"],
             createdAt: Date().addingTimeInterval(-43200),
             latitude: 31.2165,
             longitude: 121.4451

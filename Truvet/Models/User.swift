@@ -24,45 +24,45 @@ extension User {
     static let sampleUsers = [
         User(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!,
-            username: "铲屎官小王",
+            username: "Alex Walker",
             avatar: "铲屎官小王",
             isVerified: true,
-            bio: "资深铲屎官 | 三只狗狗的主人 | 分享养宠日常"
+            bio: "Veteran pet parent | Three dogs at home | Sharing daily pet life"
         ),
         User(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000002")!,
-            username: "Cooper的麻麻",
+            username: "Cooper's Mom",
             avatar: "Cooper的麻麻",
             isVerified: false,
-            bio: "Cooper妈妈 | 新手铲屎官 | 记录成长点滴"
+            bio: "Cooper's mom | New puppy parent | Documenting every milestone"
         ),
         User(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000003")!,
-            username: "宠物医生小李",
+            username: "Dr. Liam Chen",
             avatar: "宠物医生小李",
             isVerified: true,
-            bio: "执业宠物医师 | 10年临床经验 | 健康咨询"
+            bio: "Licensed veterinarian | 10+ years of clinical experience | Health Q&A"
         ),
         User(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000004")!,
-            username: "上海宠物圈",
+            username: "Shanghai Pet Circle",
             avatar: "上海宠物圈",
             isVerified: true,
-            bio: "上海最活跃的宠物社群 | 组织线下聚会"
+            bio: "Shanghai's most active pet community | Hosting offline meetups"
         ),
         User(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000005")!,
-            username: "宠物用品测评",
+            username: "Pet Gear Reviews",
             avatar: "宠物用品测评",
             isVerified: true,
-            bio: "专业测评 | 好物推荐 | 避雷指南"
+            bio: "Honest reviews | Must-have picks | What to avoid"
         ),
         User(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000006")!,
-            username: "流浪动物救助",
+            username: "Stray Rescue HQ",
             avatar: "流浪动物救助",
             isVerified: true,
-            bio: "公益组织 | 救助流浪动物 | 领养代替购买"
+            bio: "Nonprofit | Rescuing stray animals | Adopt, don't shop"
         )
     ]
 }

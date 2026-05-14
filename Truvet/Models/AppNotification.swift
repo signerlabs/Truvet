@@ -50,16 +50,16 @@ extension AppNotification {
                 type: .like,
                 fromUser: users[1], // Cooper's Mom
                 relatedPost: posts[0],
-                content: "赞了你的动态「带狗狗去公园玩啦～」",
+                content: "liked your post \"Park day with the pups!\"",
                 createdAt: now.addingTimeInterval(-60 * 5),
                 isRead: false
             ),
             AppNotification(
                 id: UUID(),
                 type: .comment,
-                fromUser: users[2], // Pet doctor Li
+                fromUser: users[2], // Dr. Liam Chen
                 relatedPost: posts[0],
-                content: "评论了你：「这款狗粮我家狗子也在吃」",
+                content: "commented: \"My dog eats that same food and loves it\"",
                 createdAt: now.addingTimeInterval(-60 * 25),
                 isRead: false
             ),
@@ -68,16 +68,16 @@ extension AppNotification {
                 type: .follow,
                 fromUser: users[3], // Shanghai Pet Circle
                 relatedPost: nil,
-                content: "关注了你",
+                content: "started following you",
                 createdAt: now.addingTimeInterval(-60 * 60 * 2),
                 isRead: false
             ),
             AppNotification(
                 id: UUID(),
                 type: .like,
-                fromUser: users[4], // Pet Supplies Reviews
+                fromUser: users[4], // Pet Gear Reviews
                 relatedPost: posts[0],
-                content: "赞了你的动态",
+                content: "liked your post",
                 createdAt: now.addingTimeInterval(-60 * 60 * 5),
                 isRead: true
             ),
@@ -86,25 +86,25 @@ extension AppNotification {
                 type: .system,
                 fromUser: nil,
                 relatedPost: nil,
-                content: "本周精选投稿活动开启，分享你和毛孩子的故事赢取好礼🎁",
+                content: "This week's featured submission contest is live — share your fur-kid story to win prizes 🎁",
                 createdAt: now.addingTimeInterval(-60 * 60 * 8),
                 isRead: true
             ),
             AppNotification(
                 id: UUID(),
                 type: .comment,
-                fromUser: users[5], // Stray Animal Rescue
+                fromUser: users[5], // Stray Rescue HQ
                 relatedPost: posts[0],
-                content: "回复了你的评论：「领养代替购买，必须点赞👍」",
+                content: "replied to your comment: \"Adopt, don't shop — full agree 👍\"",
                 createdAt: now.addingTimeInterval(-60 * 60 * 24),
                 isRead: true
             ),
             AppNotification(
                 id: UUID(),
                 type: .follow,
-                fromUser: users[2], // Pet doctor Li
+                fromUser: users[2], // Dr. Liam Chen
                 relatedPost: nil,
-                content: "关注了你",
+                content: "started following you",
                 createdAt: now.addingTimeInterval(-60 * 60 * 36),
                 isRead: true
             ),
@@ -113,7 +113,7 @@ extension AppNotification {
                 type: .like,
                 fromUser: users[3], // Shanghai Pet Circle
                 relatedPost: posts[0],
-                content: "赞了你的动态",
+                content: "liked your post",
                 createdAt: now.addingTimeInterval(-60 * 60 * 48),
                 isRead: true
             ),
@@ -122,7 +122,7 @@ extension AppNotification {
                 type: .system,
                 fromUser: nil,
                 relatedPost: nil,
-                content: "你的宠物档案已通过审核，欢迎加入 Truvet 社区🐾",
+                content: "Your pet profile has been approved — welcome to the Truvet community 🐾",
                 createdAt: now.addingTimeInterval(-60 * 60 * 72),
                 isRead: true
             )
