@@ -8,7 +8,6 @@ Truvet — a pet-owner social platform iOS demo. An early scaffolding project fr
 
 ## Engineering Constraints
 
-- **No `xcodebuild`** — build via Xcode / Simulator
 - **No third-party dependencies** — pure system frameworks + local SwiftData mock
 - **Every file using SwiftData APIs must `import SwiftData`** at the top
 - **iOS 26.4 / Swift 5 / MainActor isolation by default**
